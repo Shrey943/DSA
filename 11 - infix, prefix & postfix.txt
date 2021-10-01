@@ -1,0 +1,84 @@
+# Precedence : Operators ki apni bajandaari hoti h jisko precedence kehte h. net mai dekh lena table. (*, /, % ki jyada fir +, - )
+# Associativity : jb precedence same ho toh associativity ke hisaab se solve hoti h equaltion.(mtlb left to right ya vice versa)
+# Needed to keep in mind the precedence and associativity(which is normally left to right) of few operators. like *,/,% ki same hoti h aur +,-
+  se zyada hoti h) Table dekh lena ek baar dhyaan se.
+
+Infix :  Normal expression is known as infix.
+         ex: 
+        A)  a*b+c-d/r
+        B)  a*(b/c)+i
+
+Prefix : Prefix is just an another way of writting expressions. In this, operators are on the right side of operands. its 
+         evaluated from right to left. As soon as a operator is encountered, compiler operats it with the last 2 characters
+         (could also be the result of some cal).
+         ex:
+         A) -+*abc/dr
+         B) +*/bca
+
+         Above are the prefixs of the example of infix i.e. expression A and B
+
+         Steps to find prefix from infix manually(By hands on copy) also applying steps live on example A: 
+
+         1. set paranthesis according to precedure and associativity.
+
+            (((a * b) + c) - (d/r))     // since +,- ki precedence same h pr associativity left to rigth h
+
+         2. Start solving one by one again according to precedure and associativity. solved part is denoted under 
+            square brackets []. operator  will go on left side and both operands together on right side.
+
+            (([*ab] + c) - [/dr])     // Since its a prefix so operator on left side
+
+            [+*abc] - [/dr] 
+
+         3. Results
+          
+            -+*abc/dr
+
+# Postfix : Postfix is the most important way of writting a expression as comiler writes expression in this way. As it is easy to understand by
+            the machine without having to itterate (go through) whole expression again and again. Also no need to take care of BODMAS or brackets.
+            In this way, operators are written on the right side while operands on the left. the compiler go throudh expression from left to right
+            searching for operator and ignoring operands. as soon as it gets a operator, it applies (operate) it on last two operands and so on.
+            ex:  
+            A) cab*+dr/-
+            B) iabc/*+
+
+         Above are the prefixs of the example of infix i.e. expression A and B
+
+         Steps to find prefix from infix manually(By hands on copy) also applying steps live on example A: 
+         
+         1. set paranthesis according to precedure and associativity.
+
+            (((a * b) + c) - (d/r))     // since +,- ki precedence same h pr associativity left to rigth h
+
+         2. Start solving one by one again according to precedure and associativity. solved part is denoted under 
+            square brackets []. operator  will go on right side and both operands together on left side.
+
+            (([ab*] + c) - [dr/])     // Since its a postfix so operator on right side
+
+            [ab*c+] - [dr/]           // Its not cab*+ because we also need to follow sequence
+
+         3. Results
+          
+            ab*c+dr/-
+
+         Compiler  kaise solve krta h:
+         pehle cab ko ignore karega
+         fir * milega toh ab ko multiply karega  (let result be res1)
+         fir + milega toh res1 + c karega        (let result be res2)
+         fir dr ko ignore karega
+         fir / milega toh d/r                    (let result be res3)
+         and finally, res2 - res3 
+
+#### ****Ab Baat aati h apne ko kya? toh pehle toh postfix computer mst se smjhta h(postfix ki defination mai h aur point) Aur NEXT, infix to 
+         Postfix stack ki madad se krte h(issiliye dsa mai h)**** ####
+      
+# Infix to Postfix using stack : (here expression refers to the new expression creating(postfix expression))
+                        
+   1. variables ko ignore krke exp mai likhte jaao
+   2. Operator aane mai stack mai push karo. Ab agar stack mai jo top mai h, uska procedence iss waale se zyada ya equal h, toh pop kr lo top and 
+      add poped operator to expression. Else add to stack (agar empty h toh direct add(push) bs kr do)
+   3. Ab fir se check karo jo element uske neeche tha uske saath (precedence >=) agar h toh pop kr ke add and so on. jb tk isko push na kr lo.
+   4. jb poora expression khatam ho jaaye toh stack se saari values pop kr ke expression mai add kr do.(ussi order mai jisme pop hua)
+
+### Tip for manual conversion : jo left side h vo left mai hi rahega aur jo right side h vo  right mai hi rahega. bs operator bbhagega.
+                                check krne program se pooch skte ho.

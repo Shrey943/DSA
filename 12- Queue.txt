@@ -1,0 +1,58 @@
+Queue : its a FIFO type of linear data structure in which elements are added at last position and remove from first position.
+        First in first out.
+
+        its main applications are :
+        Operating systems mai first come first serve toh suna hoga(task scheduling ke ander re)
+        aur agar koi resource share hoga various things mai, toh queue ka use hoga
+
+        enqueue : inserting elements (time complexity : O(1){as adding elements at last in array is a task of constant time})
+        dequeue : removing elements (time complexity : O(1){as we increment front by one})
+Queue can be implemented through various ways : array, linked list and even stack.
+
+1. using array: 2 variables i.e. first and last(also named as front & rare )are kept record of. first is the index previous 
+                of index with first element and last is the index of last element. elements are added at last and last is
+                incremented by 1 and as element dequeue out first is incremented by 1(since when we remove the first element
+                from array we need to transverse whole array to decrease each index by 1, it have the time complexity of 
+                O(n))
+                Hence instead of decreasing index of each element, it is assumed that array starts from first(the variable) since
+                it has already been incremented by 1(makes time complexity (1)). 
+
+                Drawback:
+                Space is not used efficiently 
+                (Since first position is always incremented by 1, the previous memory blocks are of no longer use. Also stack can't 
+                insert new elemets (assuming it is filled till last block). at one time, first = last = last index, in that case 
+                it says queue is full infact having alll the space available.)
+
+                To overcome above drawback, circular queue is used.
+# Circular Queue: Its like a circular array in which, once the index reached last index the queue starts filling memory blocks 
+                  from index 0,1,2....(Obviously if available i.e. first/ front is at other position) and same is followed
+                  while dequeueing the elements.(In this way, all the memory is used efficiently along with the time 
+                  complexity of O(1) both in enqueue and dequeue)  
+
+                  Special formula : (i + 1)%size 
+
+                  where, i is an integer(will be front and rare)
+                         size is length of array(integer value)
+
+                  specility of formula: i will remain i till the length is reached. as after it, it will start again from 0
+                  (dekh, formala na number ko size se divide krta h aur reminder return krta h. Since saare index size se chote hi honge toh 
+                  reminder mai vo value hi aajati h, aur jb last element ko +1 krte h toh size ke equal ho jati h toh reminder 0 ban jata h
+                  aur uske baad aur increment krne mai, fir se reminders 1,2,3,...size tk milne lagte h.)
+
+    ******Queue ka front, first element ke just pehle waala index hota h aur empty hota h*******
+
+# queue using ll : pehle front and rare both null rehte h fir jo bhi first element aata h vo front aur rare bn jata h.
+                   uske baad toh bs rare badhta h. aur deletion mai front badhta h. 
+
+# Double Ended Queue(DEQueue) : Double ended queue mai insertion bhi do side se ho skta h aur deletion bhi dono side
+                                se ho skta h i.e. from front and rare both. Hn hn ye FIFO ke niyam ko todta h.
+
+                It is of 2 types :
+
+                A) Restricted Input DEqueue : Insertion from front is not allowed.(deletion dono side se ho skta h) 
+                B) Restricted Output DEqueue : Deletion from rare is not allowed.(insertion dono side se ho skta h)
+
+                Dekha jaaye toh Queue restricted input DEqueue aur restricted output DEqueue ka combination h.
+
+                DEqueue : it is pronounced as D-E-Queue as dequeue is a operation 
+  # DEqueue ko ll se implement krne doubly linked list lagegi.

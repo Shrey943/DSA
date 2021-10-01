@@ -1,0 +1,254 @@
+# As we all know algorithm is nothing other then different ways or different processes to do a task. 
+
+In algorithm we basically talk about the sorting. But why sorting? moreover what is sorting?
+
+What is sorting? : Sorting is nothing other than arranging data in assending or decending order OF SOME PERTICULAR 
+                   CONDITION such as sorting by duration, by name, by time of update, by rating, by price etc.
+                (Notice, these are the conditions, sorting could always be in assending or decending order based on condition)
+
+Why Sorting? : Ye bhi uper hi answer hogaya... as almost in everywhere we need sorting based on different conditions.
+               As every program needs some kind of sorting then its important to have a quick and easy sorting algo.
+
+There are many types of sorting algo(and many more could which are not yet discovered) every method have its own
+benefits and its own drawbacks. Hence algo's are selected accordingly. Pr kis criteria mai judge karoge algo ko?
+
+# Criteria's for sorting algorithm: 
+
+1. Time Complexity : Dekho ye toh sbse pehle dekhne waali cheeze hoti h, time complexity must be good for big datas.
+                     if a algo takes O(n^2) while other takes O(nlogn) then definatly will choose 2nd.
+                     (time complexity vese hi worst case ki hoti h)
+
+2. Space Complexity : Now Space management for big data is also important. Like how much space does your algo use while sorting.
+    # Inplace sorting algorithm: Algo which consumes constant space and whose space does not grows as the input grows 
+                                  are called inplace sorting algorithm.
+                                  (Like any variable not consuming faltu space while sorting)
+    (Sometimes if it loads all data at once but decreases time complexity then it MAY be considered but must not exceed limits)
+
+3. Stability : algorithm in which if any elements are same then if the first occurance is at first position in results
+               then the algorithm is called stable.
+               ex:  input  : 9 3 2 1 4 2 7 8  
+                let named as a b c d e f g h     accordingly 
+                   output1 : 1 2 2 3 4 7 8 9  -  stable 
+                    then,    d c f b e g h a     
+                   output2 : 1 2 2 3 4 7 8 9  -  stable 
+                    then,    d f c b e g h a  -  unstable
+                Hn hn pata h tum sooch raye hoge ki kya hi farak padta h pr dete agar sort by rating kara jaye aur kisi
+                do ki rating same ho toh to kuch bol nai skte na ki kb kon se uper aayegi iska mtlb unstable.
+
+4. A) Internal sorting algo: when all the data is loaded in memory(RAM).
+   B) External sorting algo: when all data is read from a file or database, this reduced memory consumption.
+
+5. Adaptive : If a sorted array is given as an input then algo takes less time to sort.(identify that it is sorted) 
+              Mtlb ek aisa algo ho skta h jo bina sooche ki sorted h ya nai, same sets of command run kare har element mai, toh usko adaptive nai kahenge. Jbki agar dusra algo pehle check kr le aur fatak se batade ki sorted h toh usko adaptive kahenge. 
+
+6. Recursive / Non-Recursive sorting algo:  Recursion accha nai hota ye toh pata hi hoga toh non-recursive algo
+                                            (which do not use recursion in them) ko better kahenge.
+                    
+                  
+Types of sorting algorithm : 
+
+A) Bubble sort : bubble sort is the most simple yet effective sorting algorithm. In bubble sort you go through the array n-1 times which is 
+                 known as pass. On each you keep on compairing 2 elements like index 0-1, 1-2, 2-3,....(n-1)-n and swapping them if element on
+                 right is greater than element on left. On each paas, the greatest element of the array is setted on the left and so in next
+                 pass you need not to check that and after that elements. also on (n-1)th pass, the array gets sorted hence you need to go 
+                 N-1 PASSES TO SORT AN ARRAY OF LENGTH N.
+
+                 I'm not gonna show the comparisions and swap, just understand it:
+                 array : 5, 3, 7, 3, 1, 9
+
+                 pass1 : 3, 5, 3', 1, 7, 9     // In pass 1 largest element came to end hence we will not compare the last element in nextpass  
+                 pass2 : 3, 3', 1, 5, 7, 9     // Last 2 seted, comparing length for next pass = 4
+                 pass3 : 3, 1, 3', 5, 7, 9     // Last 3 seted, comparing length for next pass = 3
+                 pass4 : 1, 3, 3', 5, 7, 9     // Last 4 seted, comparing length for next pass = 2
+                 pass5 : 1, 3, 3', 5, 7, 9     // Last 5 seted, comparing length for next = 1 (Ab khud ko khud se compare karega kya)
+
+               # Remember : Array of length n requires n-1 passes to sort (in bubble sort)
+
+                             Comparision_required                   Possible_swaps             in terms of N
+
+                  pass1            5                                     5                          n-1           
+                  pass2            4                                     4                          n-2
+                  pass3            3                                     3                          n-3
+                  pass4            2                                     2                          n-4
+                  pass5            1                                     1                          n-5
+
+                 Total swaps : (n-1) + (n-2) + (n-3) +..........+ (n - (n-1))  // Series length = n-1 
+                            => n(n-1) - [1 + 2 + 3 +.....+ (n-1)]              // Taking  n common, from n-1
+                            => n(n-1) - [(n - 1)(n - 1 + 1)]/2                 // Using formula, sum of series = n(n-1)/2
+                            => n(n-1) - n(n-1)/2
+                            => n(n-1)/2
+                            => n²/2  -  n/2
+
+         Since we taking only the largest impacting term in time complexity,
+         Hence, Time complexity is O(n²).
+
+      Scoring of Bubble sort on basis of criterias:
+
+      1. Time complexity  :  O(n²)
+      2. Space complexity : It do not creates any variable which grows with input so good.
+      3. Stability        : Yes, Jaisa apan ne uper dekha ki 3', 3 se peeche hi raha, iska mtlb ye algo stable h.
+      4. Internal SA      : hai kyo ki kahi bahar se nai kia data read
+      5. Adaptive         : May algo is sorted but it needs to go all the passes hence its not adaptive.(By default, but we can make it)
+
+      *** Bubble sort is not adaptive by default but we can make it adaptive as checking if it does any swap on first pass or not.
+          Since then too it needs to go 1 pass hence it's time complexity would decrease to O(n)*** 
+
+      6. Recursive : No, no recursion used.
+
+   //Important 
+   ***** Why Bubble sort is called Bubble sort ? 
+
+   Since, in this sorting algorithm, Bigger elements moves towards back side and respectively, smaller moves towards front, same as bubbles
+   move toward upper direction in water. *****
+
+   We can use Bubble Sort as per below constraints :
+
+   1. It works well with large datasets where the items are almost sorted because it takes only one iteration to detect whether the list is 
+      sorted or not. But if the list is unsorted to a large extend then this algorithm holds good for small datasets or lists.
+   2. This algorithm is fastest on an extremely small or nearly sorted set of data.
+   
+
+
+B) Insertion Sort : This algo uses the concept of inserting element on right place in an already sorted array. The element is kept
+                    compairing from last element towards first element. In comparision, if this element is smaller than element in array then
+                    arrays element index is incremented by 1 and element is set at that position. It keeps going till an element is larger 
+                    than the element in the array.
+
+                    Above was the concept which it use, actually when an array is given to insertion sort, Algo assumes 1st element as an 
+                    sorted array(which it is as 1 element array is always sorted) and then it keeps on checking next elements one by one. 
+                    and inserting it using above concept.
+
+                 array : 5,| 3, 7, 3, 1, 9
+
+                 // The line signifies the assumtion of 2 arrays from original array, left side is sorted array while right side is unsorted array.
+
+                 pass1 : 3, 5| 7, 3', 1, 9     // It only assumes 5 as and input and compairs with the last element(3) since its big, it donot 
+                                               // compare further.
+                 pass2 : 3, 5, 7| 3', 1, 9     // Now, it takes 7 as an input and compairs with last element(5)
+                 pass3 : 3, 3', 5, 7| 1, 9     // Now, it takes 3'and compairs with last element(7) but since its smaller, it set 7 at position 
+                                               // of 3' and continues to compare till its behind 3 and as 3 is same it breaks 
+                 pass4 : 1, 3, 3', 5, 7| 9     // Now, it takes 1 as an input and compairs with all till its reached first position
+                 pass5 : 1, 3, 3', 5, 7, 9|    // Now, it takes 9 as an input and compairs with last element(7) 
+
+               # Remember : Array of length n requires n-1 passes to sort
+
+                             Comparision_required                   Possible_swaps             in terms of N
+
+                  pass5            5                                     5                          n-1           
+                  pass4            4                                     4                          n-2
+                  pass3            3                                     3                          n-3
+                  pass2            2                                     2                          n-4
+                  pass1            1                                     1                          n-5
+
+                 Total swaps : (n-1) + (n-2) + (n-3) +..........+ (n - (n-1))  // Series length = n-1 
+                            => n(n-1) - [1 + 2 + 3 +.....+ (n-1)]              // Taking  n common, from n-1
+                            => n(n-1) - [(n - 1)(n - 1 + 1)]/2                 // Using formula, sum of series = n(n-1)/2
+                            => n(n-1) - n(n-1)/2
+                            => n(n-1)/2
+                            => n²/2  -  n/2
+
+         Since we taking only the largest impacting term in time complexity,
+         Hence, Time complexity is O(n²).
+
+         *** If array is already sorted, then it just compairs every element with its previous one once and returns the array. Hence it is 
+             an adaptive algorithm. ***
+         
+      Scoring of Bubble sort on basis of criterias:
+
+      1. Time complexity  :  O(n²)
+      2. Space complexity : It do not creates any variable which grows with input so good.
+      3. Stability        : Yes, Jaisa apan ne uper dekha ki 3', 3 se peeche hi raha, iska mtlb ye algo stable h.
+      4. Internal SA      : hai kyo ki kahi bahar se nai kia data read
+      5. Adaptive         : Adaptive by default, reson above.
+      6. Recursive        : No, no recursion used.
+
+      Due to adaptive nature, bestCase TC = O(n)
+
+   **Intermideate result of this algo is of no use, while in bubble sort at least we get largest elements at last in 
+     intermideate passes.** 
+   
+   We can use Insertion Sort as per below constraints :
+
+   1. If the data is nearly sorted or when the list is small as it has a complexity of O(N2) and if the list is sorted a minimum number of 
+      elements will slide over to insert the element at it’s correct location.
+      
+   2. This algorithm is stable and it has fast running case when the list is nearly sorted.
+
+   3. The usage of memory is a constraint as it has space complexity of O(1).
+
+
+
+C) Selection Sort :  As the name says, its nothing more than the selection of smallest element. Dekho, is algo mai bhi insertion sort jaise
+                     original array ko 2 array mai assume kia jaata h, left side sorted array and right side unsorted array. Liken, insertion
+                     mai 1st element ko sorted mai pehle ki rakh diya tha, magar isme initially sored mtlb left side empty rehti h.
+                     Ab ye kya krta h ki, right side ki list ko check krna chaalu krta h, 1st element on unsorted array ko pehle smallest 
+                     assume kia fir check krna chaalu kia, agar koi aur element usse chota mila, toh smallest element ka title usko de dia.
+                     Aise hi baaki elements ko check krte chalenge ki smallest se chota h kya koi....
+                     Jb list ke end mai pahuch jaayege toh jis bhi element ke paas smallest ka title hoga, usko 1st element of unsorted array,
+                     ke saath swap kr denge, smallest element aa gaya apne paas 1st position mai toh sorted array ko badha denge,
+                     aur ek ek kr ke baaki elements ke liye bhi aise hi check kr lenge
+
+                 *** smallest ka title nai bolte, usko best minimal bolte h, mtlb same h pr ab se best minimal hi, theek h ***
+                 ***** Best minimal value nai hoti, smallest value ka index hota h, kisi value ko best minimal ka title dena mtlb best minimal 
+                       mai uska index store krna *****
+                    
+                 // The line signifies the assumtion of 2 arrays from original array, left side is sorted array while right side is unsorted array.
+                 
+                 array : |5, 3, 7, 3', 1, 9    //  Is algo mai initially sorted empty h, insertion mai 1st element ko sorted maante the
+
+                 pass1 steps,                  // Pehle isne 5 ko smallest maana, aur usse chota element baaki array mai dhoodhna chaalu kia
+                                               // Jaise hi usko 3 mila, usne best minimal ka title 3 ke index ko de diya
+                                               // Ab aage dekhna chaalu kia, toh usko 1 mila toh usne best minimal ka title 1 ke index ko de diya
+                 pass1 : 1,| 3, 7, 3', 5, 9    // Jb poori list dekh li, tb last mai first element of unsorted ko best minimal se swap kr dete h
+                                               
+                                               // Ab fir ek baar, unsorted ke first mtlb 3 ko  smallest maana
+                 pass2 : 1, 3,| 7, 3', 5, 9    // 3 se chota nai  mila toh vaha ke waha hi raha vo, aur soreted ko badha dia
+                 pass3 : 1, 3, 3',| 7, 5, 9    //Aise hi baaki paas bhi honge
+                 pass4 : 1, 3, 3', 5,| 7, 9   
+                 pass5 : 1, 3, 3', 5, 7,| 9   // Ab ek element bs bacha h toh sorted hi hoga, largest apne aap last mai aa gaya.
+
+               # Remember : Array of length n requires n-1 passes to sort (in bubble sort)
+
+                             Comparision_required                   Possible_swaps             in terms of N
+
+                  pass1            5                                     1                          n-1           
+                  pass2            4                                     1                          n-2
+                  pass3            3                                     1                          n-3
+                  pass4            2                                     1                          n-4
+                  pass5            1                                     1                          n-5
+
+           *** Ab dekho, swap toh bs n krne padenge pr comparision ko toh koi nai rok skta isiliye time complexity O(n²) hi rahegi
+               Pr, kyoki swaps km h toh ye algo bahut km memory consume karega, hence good algo for limited memory space ***
+
+            Total comparision : (n-1) + (n-2) + (n-3) +..........+ (n - (n-1))  // Series length = n-1 
+                            => n(n-1) - [1 + 2 + 3 +.....+ (n-1)]              // Taking  n common, from n-1
+                            => n(n-1) - [(n - 1)(n - 1 + 1)]/2                 // Using formula, sum of series = n(n-1)/2
+                            => n(n-1) - n(n-1)/2
+                            => n(n-1)/2
+                            => n²/2  -  n/2
+
+         Since we taking only the largest impacting term in time complexity,
+         Hence, Time complexity is O(n²).
+
+         *** If array is already sorted, then too it will do all comparisions. Hence it is not an adaptive algorithm. ***
+         
+      Scoring of Bubble sort on basis of criterias:
+
+      1. Time complexity  :  O(n²)
+      2. Space complexity : Since swaps are as minimum as possible, hence have a very good space complexity.
+      3. Stability        : Nai yaaar, ye stable nai h. Example neeche dekho
+      4. Internal SA      : hai kyo ki kahi bahar se nai kia data read
+      5. Adaptive         : Not adaptive, swap nai krta pr comparisions poore karega.
+      6. Recursive        : No, no recursion used.
+
+   **Intermideate result of this algo is useful as on every pass we get the smallest element of whole array sorted at first possition.** 
+
+   stability example : 8 3 8' 1 8''  // first it took 8 as minimal then found 3 then on going further it found 1 so minimal becomes 1
+               pass1 : 1 3 8' 8 8''  // Hence, 1st position element i.e. 8 is swaped with position of 1             
+               pass2 : 1 3 8' 8 8''  // But, as you can see, now 8 is behind 8' thats why not stable
+               pass3 : 1 3 8' 8 8''
+               pass4 : 1 3 8' 8 8''
+   # We can use Selection Sort as per below constraints :
+
+   1. When the list is small. As the time complexity of selection sort is O(N2) which makes it inefficient for a large list.
+   2. When memory space is limited because it makes the minimum possible number of swaps during sorting.

@@ -1,0 +1,44 @@
+Best case :- When output comes in first go, no matter how big input is.
+             The time complexity in this case remains O(1).
+
+Worse case :- When you need to go through any algorithum till last and find
+              the output at very last element.
+       in normal sorting :- best case remains the first element.
+                            and worse case be O(n).{last element}
+       But when split from middle finding algo:- best is same as O(1). But worse decreases 
+                                 to O(log n).
+
+    ###WE NEED TO CARE ABOUT THE WORSE CASE.
+
+Average/Expected Case :  O((Summation of all possible runtimes)/total number of possibilities)
+
+summation of all possible runtimes = 1k+2k+3k+....+nk+nk
+Total number of possibilities = n+1 {+1 because if not found}
+
+let one comparision take k time then all possible runtime are 1,2,...,n,n
+###second n because if code doesn't find the number then also it has to go through all code 
+
+
+remember in this,..just ignore all the things, constants small numbers in front of big numbers and more
+
+
+After solving you will find expected case also to be O(n)
+#See notes
+
+#######Log Kya h : Log h ki aap kitni baar kisi number ko beech mai se tod skte ho.
+    Jaise split from middle algo mai,sorted array ko apan split krte jaate h toh uska worst case logn rehta h.
+    Par h base 2.
+
+### Space Complexity : Just like time, its the how much space(RAM) your program takes while runtime with increasing input.
+                       space complexity is calculated as how much memory program takes while runtime with increasing input.
+                       for example, 
+                       In recursion, if the function calls itself n times then one after another, functions are stacked and hence consume memory
+                       equivalent to n  hence space complixity of the function will be O(n).
+
+                       But, if there is an algo which iterates a function n times, means calls a function n times through a for loop, then since
+                       its not calling a function at once, means for each iteration function will consume memory, run and freeup the memory.
+                       Hence its space complexity is O(1). It consumes constant memory, no matter how big the number is.It would definatly take
+                       time of O(n) but constant space is used.
+
+
+ 

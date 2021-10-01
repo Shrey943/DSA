@@ -1,0 +1,12 @@
+Operations on array:
+
+1. Transval : Visiting each element in array is known as Transval. Array size dosn't matter, only filled elements matter.
+              tansversing could be in any form, liking printing every element, inserting any element at position 0,
+              searching any element,etc.
+
+2. Insertion : at any position
+3. Deletion  : from any position
+4. searching : any element.
+               1.linear search.
+               2.Binary search.
+5. Sorting   : all elements.

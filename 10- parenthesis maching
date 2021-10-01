@@ -1,0 +1,14 @@
+Dekho, stack ki sbse badi implementation hi h parenthesis matching. saari languages use krti h isko.(compiler mai)
+
+Aur ye kuch nai re...... Dekho, jo bhi expression h usko as a string(character array(c mai h na apan)) le lo, fir bs ek ek
+kr ke saare characters transverse kr lo. open bracket "(" aaye to stack mai push kr do aur agar closed bracket ")" aaye
+to pop kr lo. Baaki sbko ignore karo.(kyoki poore expression ko transverse krna padega isiliye time complexity O(n) h).
+
+Conditions for balanced condition :- 
+
+1. while poping, stack must not underflow(empty). Else not balanced
+2. when at end of expression (/0 aayega c mai), stack should be empty. Else not balanced
+
+Tip  : set stack size to the size of the expression so it do not overflow.
+
+## Multi- parenthesis matching matlb har prakaar ke parenthesis ko match krna sequence se.((), [], {})

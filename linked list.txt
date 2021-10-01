@@ -1,0 +1,12 @@
+Linked list : linked list kuch nai bs ek naye type ka data stucture h jisme every element is known as node 
+              and each node contain 2 memory blocks : data block and address block. data block store data and 
+              address block store address of next node(thats why is of pointer type of node).
+              (if its a last element than address block store NULL)
+
+              Disadvantage : 2X memory leta h batao, ek data ki ek next pointer ki, transversing is difficult.
+                             koi bhi element access krne mai zrada time le ga(time complexity to get element is O(n)
+                             while of array is O(1))
+              Advantage : Pehle se memory bhar ke nai rakhni padti, jaha chaahe waaha pe insert and delete kr
+                          do, koi transversing ki zarurat nai.(kyoki khiskaane ki zarurat nai).
+                          Free hoke jitna appennd krna h karo
+                          

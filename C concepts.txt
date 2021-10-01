@@ -1,0 +1,73 @@
+                                        Dynamic memory allocation
+
+4 methids are defined under <stdlib.h> 
+used for changing size of array at anytime 
+
+1. malloc() : used to get large single block of memory. It returns a pointer of void type(can be casted to 
+              any type)  by default its each block is filled with garbage value and will throw an error if 
+              tried to get value without initializing.
+
+              Syntex : 
+                        ptr = (cast-type*) malloc(byte-size)
+ 
+              Ex: int* ptr = (int*) malloc (4*size(int))
+
+             (give one large memory block of size 16 bytes of integer type. size(int) is just used to get int size 
+              as it may be 2 or 4 and it can be casted to any data type pointer)
+
+              ** Pointer will hold the address of first type only**
+
+
+2. calloc() : same as malloc but it already initialize the elments as zero. and on trying to get value it get 
+              returns zero.
+
+              Syntex : 
+                        ptr = (cast-type*)calloc(n, element-size);
+                        
+                        here, n is the no. of elements and element-size is the size of each element.
+
+              Example : 
+                        int* ptr = (int*) calloc(10, size(int))
+
+              (Different from malloc it gives n blocks of specified size. with continous memory allocation)
+
+
+    ***** malloc is better than calloc as its faster to allocate data in blocks(since blocks are empty 
+          in malloc while filled with zero in calloc), Until you need a zero as  
+          default value on each block.*****
+
+
+# Both malloc and calloc will return null if memory not available.
+
+3. Free(): Free method is used to DE-ALLOCATE memory. Since malloc and calloc allocate memory dynamically,
+           its not deallocated automatically. To decrease memory waste, free is used.
+
+           Syntax : 
+                    free(ptr);
+
+4. realloc(): It is used to reallocate the memory. To increase the size of memory block it keeps responsibility
+              of having all the previous members.
+
+            Syntax : 
+                     ptr = realloc(ptr, newSize);
+
+                    where ptr is reallocated with new size 'newSize'. 
+
+
+
+    ***All this memory is assigned from heap memory. 
+       (the address of malloc and normal int(in main function, memory given from stack memory) are 
+       different.)***
+
+    ***malloc alloc calloc is nothing other than the array***(Don't write this on exam, just for understanding.)
+
+    ***** realloc assigns a new memory from heap as extending same memory is possible but not guarenteed. *****
+
+
+#Difference between structure and union:
+
+structure allocates unique memory to every elements in the structure, any element, one or all can be accessed
+and changed at any time. changing one element dosn't have affect on other elements.
+
+while in union, the element with largest size is allocated memory. Only one member can be accessed at a time.
+its good when you need only one element at a time as it saves memory. changing one element affects the other elements.

@@ -1,0 +1,56 @@
+Linked list : linked list kuch nai bs ek naye type ka data stucture h jisme every element is known as node 
+              and each node contain 2 memory blocks : data block and address block. data block store data and 
+              address block store address of next node(thats why is of pointer type of node).
+              (if its a last element than address block store NULL)
+
+              Disadvantage : 2X memory leta h batao, ek data ki ek next pointer ki, transversing is difficult.
+                             koi bhi element access krne mai zrada time le ga(time complexity to get element is O(n)
+                             while of array is O(1))
+              Advantage : Pehle se memory bhar ke nai rakhni padti, jaha chaahe waaha pe insert and delete kr
+                          do, koi transversing ki zarurat nai.(kyoki khiskaane ki zarurat nai).
+                          Free hoke jitna appennd krna h karo
+                          
+
+
+##REMEMBER : the nextNode points to the next whole node(data + nextPointer) not only data of next node. Pointers always 
+             points to the Node not on any pointer or data(In linked list)
+
+Circular Linked List : its simply a linked list with last node pointer, pointing to the head Node.
+                       (naam hi se pata chalta h yaaar, ki ek circle banati h)
+
+Doubly Linked List : its also simply a linked list just with 2 pointers(and obviously data also) in a node. 
+                     One pointing previous node while other pointing to the next node. In this list we can go in 
+                     anydirection whenever the fuck we want. Using this we can transverse in opposite direction also. 
+                     application : stack, queue mai kaam aati h.
+
+                     head ka previous node NULL rehta h aur tail ka next node NULL rehta h.
+
+    # Implementation doubleEndedQueue mai with use h, dekhlena.                                                                                                         
+
+# Normal linked list is also known as singly linked list.
+
+Empty Singly linked list/Null singly linked list : head = NULL
+
+Empty circular linked list/Null circular linked list : linked list with no data(represented by dash in diagram) and 
+                                                       pointer pointing to its own node. or just head = NULL
+
+### Grounded header linked list : It is just like a singly linked list, bs isme 1st node header node(represented by start)
+                                  hota h, actually ll ko header ke baad se consider kara jayege (display bhi header ke baad se hi)
+                                  header ka next node first node ko point krta h.
+                                  header node usually kuch special data store krne use krte h, maan lo linked list 
+                                  ke count ka hisaab rakhna(nai toh poora transverse karo)
+    
+    *** Are hn grounded mtlb last node null ko point karega(hn kuch special nai h, singally jaise hi) ***
+    agar start = NULL ho mtlb empty h
+
+// Neeche h teepa hua definition, exam ke liye padhna ho toh padh lena. 
+
+Grounded Header Linked List
+It is a list whose last node contains the NULL pointer. In the header linked list the start pointer always points to the header node. start -> next = NULL indicates that the grounded header linked list is empty. The operations that are possible on this type of linked list are Insertion, Deletion, and Traversing.
+
+Circular Header Linked List
+A list in which last node points back to the header node is called circular linked list. The chains do not indicate first or last nodes. In this case, external pointers provide a frame of reference because last node of a circular linked list does not contain the NULL pointer. The possible operations on this type of linked list are Insertion, Deletion and Traversing.
+
+
+
+                                  

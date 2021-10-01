@@ -1,0 +1,31 @@
+ds deals with memory 
+algo deals with time
+
+legacy data -  data which is different from main data(stored differently) 
+               and could be used in future for annalysis
+DATABASE(stored in permanent storage for fast updation and deletion) , 
+
+DATA WAREHOUSE(anagement of huge data of legacy data( the data we keep 
+at a different place from our fresh data in the database to make the process of 
+retrieval and updation fast) for better analysis.) , 
+
+BIG DATA :- large amount of data that can not be processed by traditional data processing applications.
+
+RAM ->  HEAP MEMORY    -  Dynamic Memory which could be allocated and deallocated(released) within a function.
+            |             uses : malloc(), calloc(), free(), realloc()
+            |             
+        STACK MEMORY   -  memory is stacked according to function call, and remains till the function 
+            |             returns any value, once retured it frees the memory.
+            |
+        Uninitialised  - All the variables are stored here, more the variable, more memory used.
+           and 
+        initialised
+          data
+            |
+        Code Segment
+
+# When ever a function is called, its all code (variables) are stacked in stack memory and as soon as return 
+called, it frees all the memory. STATIC keyword can be used for both variable and function so its memory is 
+not freed after return and can be used afterwards.
+
+# Static keyword increses the scope of a variable or function to global. 

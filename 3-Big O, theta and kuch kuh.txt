@@ -1,0 +1,36 @@
+₀₁₂₃₄₅₆₇₈₉
+¹²³⁴⁵⁶⁷⁸⁹⁰  
+                                        Asymphotic notation
+#according to mathematics, big O of n² i.e. O(n²) is automatically Big O of n³,n⁴,n⁵,........infinity.
+BUT IN CS, its always better to say the least number i.e O(n²).
+
+Now take the example of a time equation of a algo represented by function be - f(n) :   n³ + 5n +100
+in this case, surely its the O(n³). Now since n³ is big O it must always be greater than the function f(n) BUT for n=1, f(n)>n³. 
+Therefore,if you see, until a certain value of n, f(n) and g(n) {Let g(n) = n³} may be equal, grater or smaller than each other.
+But, after a certain value of n, g(n) will always be grater than f(n). 
+
+NOW, mathematical definitiion of Big oh,
+
+A function f(n) is said to be O(g(n)){Big O of function g(n)} IFF, there exists a constant C and a constant n₀ such that,
+
+                                 0 <= f(n) <= C.g(n)               for all, n > n₀
+        just for ex :            0 <= n³ + 5n +100 <= C.n³         for c=105, n > 1
+
+
+Big Omega :- just the inverse of big O above.
+                0 <= C.g(n) <= f(n)
+
+Main:
+Big Theta(Θ) :- f(n) is said to be Θ(g(n)){Big Theta of function g(n)} IFF, there exists a constant C₁,C₂ and a constant n₀ such that,
+                                0 <= f(n) <= C₁.g(n)  
+                            and 0 <= C₂.g(n) <= f(n)  
+                                
+                            =>  0 <= C₂.g(n) <= f(n) <= C₁.g(n)  
+
+                            ###SEE NOTES AND GRAPHS ARE MUST
+                            ###See graphs and proper definitiion in NOTES
+                            ###big theta is also refered as "order of" and when not clear give big theta 
+
+                            ###Big theta provides a better picture of a given algorithm's run time
+
+

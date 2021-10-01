@@ -1,0 +1,22 @@
+ADT: Abstract Data Type 
+
+Abstract means hidden(in adt all methods are hidden we can call any method and need not to worry about the code.)
+
+ADT is something which have some minimal requirements and other additional methods or features.
+ex: array, minimal requirements = get any element by index and set any element by index./
+           additional           = insert,delete,resize,length, etc. 
+
+Array : array is the sequence of data stored in continous address. It can store any data type(one at a time)
+        like int, float, custom.
+
+        We can get and set any element on array at O(1) time using address - Advantage
+        for ex: address of first element is x then adress of nth element is : x + 4(n)
+                asumming array of a integer with 4 bit .
+
+        But we can not change the size of array in C. So inserting or deleting  any element at any position 
+        turns out to as costly as O(n) as if element at first position is removed then decrease the index of 
+        all elements by 1.(need to go through n elements.) 
+
+STATIC ARRAY : who's size cant be changed. ex: normal array in C.
+
+DYNAMIC ARRAY : who's size can be changed. ex: array as an abstract data type.(using structure)

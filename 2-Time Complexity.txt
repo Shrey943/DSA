@@ -1,0 +1,33 @@
+
+Time Complexity is this the efficiency of program it basically tells us about how the runtime is affected 
+with increasing input.
+
+
+Big O : It is a notation to show time Complexity. Like whats the most runtime impactful term in equation representing runtime.
+for example: # Where n is input
+O(1) : When runtime remains constant with increasing input.            #BEST Amazing 
+O(logn) : When runtime increases linearly with increasing input.       # Better (see log definition in best worse and average/expected case)
+O(n) : When runtime increases linearly with increasing input.          #FAIR Considerable
+O(nlogn) : When runtime increases logically with increasing input.     #BAD
+O(n²): When runtime increases quadirally with increasing input.       #TERREBLE
+O(n³): When runtime increases cubically with increasing input.        #TERREBLE
+O(C^n) : constant c to power n, ex: 2^net                             #MOST TERREBLE
+O(n^c) : n to the power constant c                                    #MOST TERREBLE
+O(n!) : When runtime increases factorially with increasing input.     #MOST TERREBLE WORSE horrable (Direct way to hell)
+O(n^n) : Ab iska kya hi bole......shaitaan bhi sharma jaaye
+
+T = n²K1 + nK2 + K3        -   if this equation represents the time taken by any algo.
+
+O(n²)                      -   then its Big O is notated as
+
+#Always biggest (most time consuming part is taken) and time consuming table in assending order is given above from top to bottom.
+ 
+## Vo software tune most horrable bana thaa, uska big O notation hoga : O(n²) 
+
+IMPORTANT : Algo could be changed according to input size, for some algo1 would take less time and for large input algo 2 would be better.
+            In this case, algo 2 is considered more good as algo must take less time for large input.
+
+            ## SEE GRAPHS IN HARRY NOTES
+
+
+¹²³⁴⁵⁶⁷⁸⁹⁰

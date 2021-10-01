@@ -1,0 +1,25 @@
+Time complexity or complexity refers to : Big O
+it is the time program takes
+all the constants are always ignored and only the main n part is seen.
+ex:
+for(i,i<n,i++){}
+for(j,j<n,j++){}
+
+it takes 2n time.
+So, its time complexity is O(n)
+
+for (i,i*i<n,i++){}
+its time complexity is O(root n).
+
+for (i,i*i<10000,i++){}
+its time complexity is O(1) : constant value kuch bhi ho, likhte O(1) hi h
+
+
+#####Apan ko assume nai krna h kuch input try kr kr ke ki beech mai
+     break ho jayegi, worst case ke hissab se bolo.######
+
+
+for(i,i<n,i++){
+   for(j,j<n,j++){}
+}
+iski complexity O(n^2) h.
