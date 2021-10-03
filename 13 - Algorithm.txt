@@ -43,6 +43,9 @@ benefits and its own drawbacks. Hence algo's are selected accordingly. Pr kis cr
 
 6. Recursive / Non-Recursive sorting algo:  Recursion accha nai hota ye toh pata hi hoga toh non-recursive algo
                                             (which do not use recursion in them) ko better kahenge.
+
+7. In-place :  Algorithms that doesn't use any extra space other than the space of array for sorting is called in-place algorithm.
+               However, some constant space for variables are allowed. (space required to sort sould not increase with input)
                     
                   
 Types of sorting algorithm : 
@@ -94,6 +97,7 @@ A) Bubble sort : bubble sort is the most simple yet effective sorting algorithm.
           Since then too it needs to go 1 pass hence it's time complexity would decrease to O(n)*** 
 
       6. Recursive : No, no recursion used.
+      7. In-place  : Yup, no extra increasing space required to sort.
 
    //Important 
    ***** Why Bubble sort is called Bubble sort ? 
@@ -153,7 +157,7 @@ B) Insertion Sort : This algo uses the concept of inserting element on right pla
          *** If array is already sorted, then it just compairs every element with its previous one once and returns the array. Hence it is 
              an adaptive algorithm. ***
          
-      Scoring of Bubble sort on basis of criterias:
+      Scoring of Insertion sort on basis of criterias:
 
       1. Time complexity  :  O(n²)
       2. Space complexity : It do not creates any variable which grows with input so good.
@@ -161,6 +165,7 @@ B) Insertion Sort : This algo uses the concept of inserting element on right pla
       4. Internal SA      : hai kyo ki kahi bahar se nai kia data read
       5. Adaptive         : Adaptive by default, reson above.
       6. Recursive        : No, no recursion used.
+      7. In-place         : Yup, no extra increasing space required to sort.
 
       Due to adaptive nature, bestCase TC = O(n)
 
@@ -232,7 +237,7 @@ C) Selection Sort :  As the name says, its nothing more than the selection of sm
 
          *** If array is already sorted, then too it will do all comparisions. Hence it is not an adaptive algorithm. ***
          
-      Scoring of Bubble sort on basis of criterias:
+      Scoring of Selection sort on basis of criterias:
 
       1. Time complexity  :  O(n²)
       2. Space complexity : Since swaps are as minimum as possible, hence have a very good space complexity.
@@ -240,6 +245,7 @@ C) Selection Sort :  As the name says, its nothing more than the selection of sm
       4. Internal SA      : hai kyo ki kahi bahar se nai kia data read
       5. Adaptive         : Not adaptive, swap nai krta pr comparisions poore karega.
       6. Recursive        : No, no recursion used.
+      7. In-place         : Yup, no extra increasing space required to sort.
 
    **Intermideate result of this algo is useful as on every pass we get the smallest element of whole array sorted at first possition.** 
 
@@ -252,3 +258,95 @@ C) Selection Sort :  As the name says, its nothing more than the selection of sm
 
    1. When the list is small. As the time complexity of selection sort is O(N2) which makes it inefficient for a large list.
    2. When memory space is limited because it makes the minimum possible number of swaps during sorting.
+
+
+D) Quick Sort : Quick sort is the divide and conquer technique. Dekho, ek element ko pakdo, usko place mai laao, aur us place se array ko 2 
+                parts mai todo(ek 0 se position-1 & ek position+1 se last tk). Right place mai laane ko kehte h partition. Ab jo 2 array mile h
+                uska partition kr lo, fir dono se 2-2 array milenge, aise tb tk krte raho jb ek 1 element na bache, ab 1 toh sorted hi hoga na.
+                Har partition mai ek element place mai aata jata h. Pr partition kare kaise....neeche dekh.
+                
+                Arre dekho, apan kya krte h, ki koi ek element ko pakadte h aur usko naam dete h
+                pivot. Pivot apan first ko bhi le skte h, last ko bhi aur random ko bhi. Ab pivot ko aise place krna h ki usse bade right side 
+                aur usse chote left side aaa jaye. aisa krne apan 2 variable ki help lete h, i and j. (iske aage ka method, considering pivot 
+                as first element ka h). choto ko left aur bado ko right side krne se element automatically apni sahi position mai aajata h.
+                zaha se usko hilne ki zarurat nai. Ab partition ke steps kya rehte h ye neech likhe h,
+
+                - Pehle first element ko pivot liya, 2nd element ko i aur last element ko j.
+                - Ab apan ne i se bola, check karo iske aage kaha tk pivot se chote element h, agar koi bada mile toh ruk jaana. 
+                - Maan lo i ko ussi, first position, jaha se start kiya i ne waha hi bada mil gaya toh, i toh waha hi ruk gaya.
+                - Ab j se bolega ki bhaiya last se meri taraf aao aur check karo, sb pivot se bade elements hi h na, agar koi chota ho toh 
+                  wahi ruk jaana aur report krna. 
+                - Agar j ko koi chota element milta h raste mai toh toh ye bolta h, ki aae pivot se bade element ke right side kya kr ra h 
+                  chal chote element taraf ja, aur fir i aur j ki value swap kr lenge.
+                - Ab fir, i se bolenge ki jis position mai ruke the, waha se resume karo bade element ko dhoodna, pr hn, jaise hi j ko cross kr lo
+                  batana.
+                - Aur aise hi j se bhi kehte h, ki chote element ko dhoodhna start karo, but jaise hi i ko cross karo ruk jana.
+
+                Ab dekho, jb j, i ko cross kr lega, mtlb j ke right side sb bade h aur left side sb chote(nai toh dono pehle hi ruk ke swap kr lete)
+                aur j ek chote element mai khada h, isiliye j aur pivot ko swap kr denge, ab pivot le left side chote, right side bade elements h. 
+                Aur apna pivot sahi jagah pr h. 
+
+                Agar smjh nai aaya toh neech waala example dekh, fir code dekh lena:
+
+                              5 3 7 3' 1 9
+
+                partition 1 : 5 3 7 3' 1 9  // Pivot = 5, i = 3 and j = 9 (i and j index rehte h, yaha sirf smjhaane value ke roop mai likha h)
+                              5 3 1 3' 7 9  // i badha, usko 7 mila, pivot se bada toh vo ruk gaya, fir j badha(decending), usko 1 mila, pivot se chota toh usne dono ko swap kr diya 
+                              3'3 1 5  7 9  // i fir badha bade ki talash mai, uskko 7 mila, toh ruka, ab j chota dhoodhne jaise hi badha uske 3' mila, pr usko realize hua ki vo toh
+                                               i ke aange aa gaya toh usne i ke saath swap na kr ke pivot ke saath hi kr liya, ab dekho, 5 ke left side poore chote aur 
+                                               right side poore bade h, mtlb 5 apni sahi position mai h, ab usko nai choona h, 
+                                               toh ab partion lagayenge  0 se 2 index ke array ke liye and 4 se 5 index ke liye
+
+               ** actually mai array ko 2 parts mai nai kara jata h, same array mai operations hote h, bs kitne array ko chooona h iski permission
+                  di jaaati h. **
+
+                partition 2(for 0 to 2) : 1 3 3' 5 7 9  // j ki position 2 thi toh array ko fir partition ke liye bheja jaayega, 0-1 ke liye
+                                                        // Jb 2 hi element ho toh first pivot aur 2nd i and j both, agar pivot se chota hoga 
+                                                        // 2nd element toh j nai badhega, aur i toh iske aage ja bhi nai skta. Ab pivot aur j
+                                                        // Swap ho jayenge toh sahi aa jaayega, aur agar 2nd bada hota toh j decrease hoke 
+                                                        // pivot ki position mai aajata, usko equal element milta toh wahi ruk jata aur khud hi
+                                                        // se swap kr leta.
+                partition 3(for 4 to 5) : 1 3 3' 5 7 9  // pehle 0-2 ke liye call kiye, issiliye 1 3 3' alligned h
+
+                partition 4(for 0-1) : 1 3 3' 5 7 9 
+
+      # Worst case :  When array is already sorted. partition required (n-1) and as we can see, on each partition we need to transverse whole
+                      array hence time required for each partition is some linear function on n i.e. kn + c (where k and c are constants)  
+                      Therefore, time required when  array is sorted : (n-1)(kn + c) 
+
+                        *****  Hence, time complexity in worst case : O(n²)  *****
+
+      # Best case : When partition is always from middle. partition required are log n. Ab poora transverse toh krna hi padega logn baar.
+
+                        ***** Hence best case complexity is O(nlogn) *****
+                        ***** Also, Avg time complexity is : O(nlogn) *****
+
+      Scoring of Quick sort on basis of criterias:
+
+      1. Time complexity  :  O(n²) (worst hi batai jaati h), O(nlogn)
+      2. Space complexity : It do not creates any variable which grows with input so good. (In - Place)
+      3. Stability        : Naah, Not stable re, aage peeche ho skte h
+      4. Internal SA      : hai kyo ki kahi bahar se nai kia data read
+      5. Adaptive         : Adaptive by default, reason above.
+      6. Recursive        : Yessss, Poora recursive based hi h, but iteration se bhi kr skte h
+      7. In-place         : Yup, no extra increasing space required to sort.
+
+
+      We can use Quick Sort as per below constraints :
+      
+      1. Quick sort is fastest, but it is not always O(N*log N), as there are worst cases where it becomes O(N2).
+      2. Quicksort is probably more effective for datasets that fit in memory. For larger data sets it proves to be inefficient so algorithms 
+         like merge sort are preferred in that case.
+      3. Quick Sort in is an in-place sort (i.e. it doesn’t require any extra storage) so it is appropriate to use it for arrays.
+      
+      # Low : jo bhi smallest index hota h effective array ka (mtlb jis array mai kaam krna h)
+      # High : jo bhi highes index hota h effective array ka 
+
+      Pivot as Last element :
+
+      pivot last element rehega(high position waala), i ki value low -1 rahegi, aur pivot last mai i +1 position mai aayega, 
+      Dekho fatak se, j low se transerverse krna chaalu karega, j ko jaise hi koi pivot se chota element milega, vo i ki value increment kr ke
+      i se swap kr lega, aise mai i position tk sirf pivot se chote element hi rahenge, jaise hi j high-1 position check kr lega, toh uske baad
+      i+1 position ke saath pivot swap kr lega. Ab pivot ke left side chote aur right side bade elements h.
+
+      Arre bahutai easy h, code toh dekho zara.
