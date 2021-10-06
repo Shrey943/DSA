@@ -35,12 +35,13 @@ int main()
     // transverse(&stack);
 
     push(&stack, 2342);
-    push(&stack, 23242);
+    push(&stack, 23242); // OverFlow
+
 
     printf("\nPoped element is : %d\n", pop(&stack));
-    // printf("\nPoped element is : %d\n", pop(&stack));
+    printf("\nPoped element is : %d\n", pop(&stack));
 
-    printf("\n");
+    printf("\nTransverse using peek :-\n");
     for (int i = 1; i <= stack.top + 1; i++) // Better way to transverse stack
     {
         printf("Element at position %d is : %d\n", i, peek(&stack, i)); // ITS THE WAY TO PRINT STACK

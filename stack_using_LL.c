@@ -32,7 +32,7 @@ int main()
     top = push(top, 456);
     top = push(top, 555);
 
-    printf("\nStack isEmpty : %d \t isFull : %d\n\n", isEmpty(top), isFull(top));
+    // printf("\nStack isEmpty : %d \t isFull : %d\n\n", isEmpty(top), isFull(top));
 
     transverse(top);
 
@@ -46,7 +46,7 @@ int main()
 
     printf("\nElement at position 1 is %d\n", peek(top, 1));
 
-    printf("\ntransverse using peek :-\n");
+    printf("\nTransverse using peek :-\n");
     int i = 1;
     struct Node *temp = top;
     while (temp != NULL)
