@@ -350,3 +350,68 @@ D) Quick Sort : Quick sort is the divide and conquer technique. Dekho, ek elemen
       i+1 position ke saath pivot swap kr lega. Ab pivot ke left side chote aur right side bade elements h.
 
       Arre bahutai easy h, code toh dekho zara.
+
+E) Merge Sort : Merge sort ka ek fanda h, pehle todo fir jodo, (divide and merge). Pehle recursion ka use kr ke array ko mid mai se todte jaao
+                jab tk sirf ek element na bache, which is already sorted. Ab waha se wapas ussi path mai jisse aaye the, wapas jaana chaalu karo 
+                merge krte hue. Ab aata h real khel, merge sort ka naam hi merge se pada, ki 2 sorted array ko merge krna. jb apan recursion mai
+                last mai pahuchenge toh 2 single elements milenge aur unhi ko 2 sorted array maan ke apan merge karenge. Aise hi jb merge kr lenge
+                toh toh usse uper pahuchenge, vaha 2 sorted array ho jayenge toh unko merge karenge. Aise hi poora sort ho jayega. 
+
+                And merge krne ki process neeche h:
+
+                - first & second array ke first elements ke index ko i and j maano.
+                - then ek empty array banao.(let name be temp)
+                - Ab i aur j ko compare krna chaalu kardo, agar i ki value <= j ki value hui toh temp array mai add kr do. and i ko increment kr do. 
+                  aise ki agar j chota ya equal hua toh usko add kr ke increment kr do.
+                - Jaise hi koi bhi array, apne end index se increment ho toh dusre array ke saare elements temp mai add kr do. 
+                - Lo ho gaya sort.
+               
+               ** In real implementation, 2 array nai liye jaate h, low index and high index bs milta h aur array ka mid(low+high/2) nikaal ke
+                  low to mid ko ek arraay and mid+1 to high ko dusra array maante h.(dono sorted bhi issi pattern mai rehte h)
+               
+|                                                        5 3 7 3' 1 9                  (l = 0, h = 5, m = 2))
+|                                                _____________|_____________     
+|                                               |                           |    
+|                         (l=0, h=2, m=1)     5 3 7                      3' 1 9        (l = 3, h = 5, m = 4)
+|                                       ________|________          _________|________
+|                                      |                 |        |                  |
+|                    (l=0,h=1,m=0)    5 3                7      3' 1                 9    (l=3,h=4,m=3) {for 7: l=h=2 & for 9 : l=h=5 
+|                                  ____|____                  ____|_____          Hence they are ready for merge and waiting for 3' 1 to return} 
+|                                 |         |                |          |
+|                                 5         3                3'         1         // Yaha se wapas jana start.
+|                                                                                 // 5,3 merge ke liye jayenge fir sort hoke aayenge,
+|                                                                                 // fir 7 ke saath merge honege and so on 
+
+   # Now Kisi bhi case mai(worst, avg, best) har baar, array ko middle se hi break krna h toh uski time complexity toh logn ho gayi,
+     Also, har baar hi usko, n ke kisi linear equation times kaam krna padta h, it can be 2n, n/2 or anything toh 100 baat ki ek baat
+
+     Worst, Average, Best Case Time complexity of merge sort is O(nlogn).
+     
+      Scoring of Quick sort on basis of criterias:
+
+      1. Time complexity  : O(nlogn) 
+      2. Space complexity : O(n) Har baar isko n size ka array lagega.
+      3. Stability        : Are bilkul stable h
+      4. Internal SA      : Yup
+      5. Adaptive         : Naah....Poora sorted hoga toh bhi ye poora array jaayega
+      6. Recursive        : Yessss, Poora recursive based hi h.
+      7. In-place         : NO , O(n) extra space leta h.
+
+      We can use Merge Sort as per below constraints :
+
+      - Merge sort is used when the data structure doesn’t support random access since it works with pure sequential access that is forward 
+        iterators, rather than random access iterators.
+      
+      - It is widely used for external sorting, where random access can be very, very expensive compared to sequential access.
+      
+      - It is used where it is known that the data is similar data.
+      
+      - Merge sort is fast in the case of a linked list.
+      
+      - It is used in the case of a linked list as in linked list for accessing any data at some index we need to traverse from the head to that index and merge sort accesses data sequentially and the need of random access is low.
+      
+      - The main advantage of the merge sort is its stability, the elements compared equally retain their original order.
+
+
+
+      
