@@ -7,9 +7,9 @@ void merge(int arr[], int low, int high);
 
 int main()
 {
-    int arr[] = {5, 3, 7, 3, 1, 9};
-    // int arr[] = {5, 4, 23, 6, 7, 58, 4, 52, 35, 5375, 688, 6324, 53425, 1};
-    int size = 6;
+    // int arr[] = {5, 3, 7, 3, 1, 9};
+    int arr[] = {5, 4, 23, 6, 7, 58, 4, 52, 35, 5375, 688, 6324, 53425, 1};
+    int size = 14;
 
     printf("List before sort: ");
     display(arr, size);
