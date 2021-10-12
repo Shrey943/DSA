@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 def intersection(lst1, lst2):
     lst3 = [value for value in lst1 if value in lst2]
     return lst3
@@ -63,9 +66,13 @@ def layoutConst(a, w, h, fs, odr, ori):
         sumA = 0
         for i in LC[j]:
             sumA = sumA + a[i-1]  # SUS
-        print("Sum : ", sumA)
+        print("Sum LC : ", sumA)
+        sumRC = 0
+        for i in RC[j]:
+            sumRC = sumRC + a[i-1]  # SUS
+        print("Sum RC : ", sumRC)
 
-        if ori[j] == 0:
+        if ori[j] == 0: #Vertical
 
             for i in LC[j]:
 
@@ -78,12 +85,16 @@ def layoutConst(a, w, h, fs, odr, ori):
 
                 ul[i-1] = ((ul[i-1])[0] + (sumA/(ul[i-1])[1]), (ul[i-1])[1])
 
-        elif ori[j] == 1:
+        elif ori[j] == 1: #Horizontal
 
             for i in LC[j]:
+                if(i-1 == 1):
+                    print("\n In 2")
+                    print("LR : ", lr)
+                    print("UL : ", ul)
 
                 # lr.insert(i, ((lr[i])[0],  (ul[i])[1] - (sumA/(lr[i])[0])))
-                lr[i-1] = ((lr[i-1])[0],  (ul[i-1])[1] - (sumA/(lr[i-1])[0]))
+                lr[i-1] = ((lr[i-1])[0],  (ul[i-1])[1] - (sumRC/(lr[i-1])[0]))
 
             for i in RC[j]:
 
@@ -100,6 +111,12 @@ def layoutConst(a, w, h, fs, odr, ori):
         print(f"lr[{i}] : ", lr[i])
         print(f"ul[{i}] : ", ul[i])
         print("\n")
+
+    # xs = [x[0] for x in lr]
+    # ys = [x[1] for x in ul]
+
+    # plt.scatter(xs,ys)
+    # plt.show()
     return
 
 
