@@ -72,7 +72,7 @@ def layoutConst(a, w, h, fs, odr, ori):
             sumRC = sumRC + a[i-1]  # SUS
         print("Sum RC : ", sumRC)
 
-        if ori[j] == 0: #Vertical
+        if ori[j] == 0:  # Vertical
 
             for i in LC[j]:
 
@@ -85,7 +85,7 @@ def layoutConst(a, w, h, fs, odr, ori):
 
                 ul[i-1] = ((ul[i-1])[0] + (sumA/(ul[i-1])[1]), (ul[i-1])[1])
 
-        elif ori[j] == 1: #Horizontal
+        elif ori[j] == 1:  # Horizontal
 
             for i in LC[j]:
                 if(i-1 == 1):
@@ -99,7 +99,7 @@ def layoutConst(a, w, h, fs, odr, ori):
             for i in RC[j]:
 
                 # ul.insert(i, ((ul[i])[0], (ul[i])[1] - (sumA/(lr[i])[0])))
-                ul[i-1] = ((ul[i-1])[0], (ul[i-1])[1] - (sumA/(lr[i-1])[0]))
+                ul[i-1] = ((ul[i-1])[0], (ul[i-1])[1] - (sumRC/(lr[i-1])[0]))
 
         j = j + 1
 
@@ -108,15 +108,15 @@ def layoutConst(a, w, h, fs, odr, ori):
     print("ul : ", ul)
 
     for i in range(0, n):
-        print(f"lr[{i}] : ", lr[i])
-        print(f"ul[{i}] : ", ul[i])
+        print(f"lr[{i+1}] : ", lr[i])
+        print(f"ul[{i+1}] : ", ul[i])
         print("\n")
 
-    # xs = [x[0] for x in lr]
-    # ys = [x[1] for x in ul]
+    xs = [x[0] for x in lr]
+    ys = [x[1] for x in ul]
 
-    # plt.scatter(xs,ys)
-    # plt.show()
+    plt.scatter(xs, ys)
+    plt.show()
     return
 
 
