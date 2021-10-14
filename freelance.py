@@ -11,7 +11,7 @@ def layoutConst(a, w, h, fs, odr, ori):
     LC, RC, lr, ul, R = [], [], [], [], []
 
     n = len(fs)
-    print("N : ", n)
+    # print("N : ", n)
 
     # LC[0] = fs
     LC.insert(0, fs)
@@ -23,15 +23,15 @@ def layoutConst(a, w, h, fs, odr, ori):
         lr.append((w, 0))
         ul.append((0, h))
 
-    print("LR : ", lr)
-    print("ul : ", ul)
+    # print("LR : ", lr)
+    # print("ul : ", ul)
     j = 0  # SUS
 
     while j != n-1:
-        k = n-1
+        k = n-2
         while k >= 0:
             try:
-                if (fs[odr[j]] in LC[k]):
+                if (fs[odr[j]-1] in LC[k]):
                     print(f"*********hua******** k ={k}")
                     # print(LC)
                     R = LC[k]
@@ -39,7 +39,7 @@ def layoutConst(a, w, h, fs, odr, ori):
 
                     break
 
-                elif (fs[odr[j]] in RC[k]):
+                elif (fs[odr[j]-1] in RC[k]):
                     print("*******hua**********")
                     R = RC[k]
                     print("R = ", R)
@@ -51,7 +51,7 @@ def layoutConst(a, w, h, fs, odr, ori):
 
         temp = odr[j]
 
-        print("\ntemp :", temp)
+        # print("\ntemp :", temp)
         if (j == 0):
             LC[j] = intersection(fs[0: temp], R)
         else:
@@ -88,18 +88,20 @@ def layoutConst(a, w, h, fs, odr, ori):
         elif ori[j] == 1:  # Horizontal
 
             for i in LC[j]:
-                if(i-1 == 1):
-                    print("\n In 2")
-                    print("LR : ", lr)
-                    print("UL : ", ul)
+                # if(i-1 == 1):
+                #     print("\n In 2")
+                #     print("LR : ", lr)
+                #     print("UL : ", ul)
 
                 # lr.insert(i, ((lr[i])[0],  (ul[i])[1] - (sumA/(lr[i])[0])))
-                lr[i-1] = ((lr[i-1])[0],  (ul[i-1])[1] - (sumRC/(lr[i-1])[0]))
+                lr[i-1] = ((lr[i-1])[0],  (ul[i-1])[1] -
+                           (sumA/((lr[i-1])[0] - (ul[i-1])[0])))
 
             for i in RC[j]:
 
                 # ul.insert(i, ((ul[i])[0], (ul[i])[1] - (sumA/(lr[i])[0])))
-                ul[i-1] = ((ul[i-1])[0], (ul[i-1])[1] - (sumRC/(lr[i-1])[0]))
+                ul[i-1] = ((ul[i-1])[0], (ul[i-1])[1] -
+                           (sumA/((lr[i-1])[0] - (ul[i-1])[0])))
 
         j = j + 1
 
