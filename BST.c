@@ -61,13 +61,17 @@ int search(node *root, int data)
     return search(root->left, data);
 }
 
-int search2(node *root, int data)
+int search2(node *root, int data) // Using iteration
 {
-    while (root != NULL){
-        if(root->data == data) return 1;
+    while (root != NULL)
+    {
+        if (root->data == data)
+            return 1;
 
-        if (data > root->data) root = root->right;
-        else root = root->left;
+        if (data > root->data)
+            root = root->right;
+        else
+            root = root->left;
     }
     return 0;
 }
@@ -83,7 +87,8 @@ int main()
     fifth = createNode(8);
     sixth = createNode(19);
     seventh = createNode(9);
-
+    // eightth = createNode(14); // For 3rd tree
+    // nineth = createNode(12);
     /*
 |
 |           10
@@ -103,6 +108,16 @@ int main()
   |            \
   |             9
   |
+  |
+  |           10
+  |          /  \
+  |         6    13
+  |        / \    \       // Every thing is good til 14 but 12 is smaller than 13 hence it can not come in right sub tree  of 13
+  |       2   8    19
+  |            \   /
+  |             9 14
+  |               /
+  |              12
   */
 
     // root->left = second;    // NOT A BST (First one)
@@ -118,6 +133,8 @@ int main()
     second->right = fifth;
     third->right = sixth;
     fifth->right = seventh;
+    // sixth->left = eightth; // For third tree
+    // eightth->left = nineth;
 
     inorderTransversal(root);
     printf("\n");

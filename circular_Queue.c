@@ -19,6 +19,7 @@ void display(struct Queue *queue);
 int queueTop(struct Queue *queue);
 int queueBottom(struct Queue *queue);
 int count(struct Queue *queue);
+int search(struct Queue *queue, int data);
 
 int main()
 {
@@ -60,6 +61,11 @@ int main()
     printf("\nBottom element is : %d\n", queueBottom(&queue));
 
     printf("\nTotal number of elements are: %d\n", count(&queue));
+
+    search(&queue, 3);
+    search(&queue, 23);
+    search(&queue, 65);
+
     return 0;
 }
 
@@ -67,7 +73,7 @@ void createQueue(struct Queue *queue, int size)
 {
 
     int *new = (int *)malloc(sizeof(int) * size);
-    queue->front = 0; //So that 1 empty position is reserved for front(it also helps in calculations of special formula, as it do not for with -1)
+    queue->front = 0; // So that 1 empty position is reserved for front(it also helps in calculations of special formula, as it do not for with -1)
     queue->rare = 0;  // front waali position toh hamessa khaali rehti hi h na yaar,toh kahe bharega
     queue->size = size;
     queue->ptr = new;
@@ -148,7 +154,6 @@ void display(struct Queue *queue)
         i = (i + 1) % queue->size;
     }
     printf("Element : %d\n", queue->ptr[i]);
-   
 }
 int queueTop(struct Queue *queue)
 {
@@ -186,11 +191,35 @@ int count(struct Queue *queue)
     // printf("\nCount : %d\n", count);
     // return count;
 
-    //But Above code have time complexity of O(n) which...is not good when we can do same in O(1) time so below is the thing
+    // But Above code have time complexity of O(n) which...is not good when we can do same in O(1) time so below is the thing
 
     if (queue->rare < queue->front)
     {
         return queue->size - queue->front + queue->rare;
     }
     return queue->rare - queue->front;
+}
+
+int search(struct Queue *queue, int data)
+{
+
+    if (isEmpty(queue))
+    {
+        printf("Queue Empty.\n");
+        return -1;
+    }
+
+    int i = (queue->front + 1) % queue->size;
+
+    while (i != queue->rare)
+    {
+        if (queue->ptr[i] == data)
+        {
+            printf("\nElement %d Found !!!\n", data);
+            return 1;
+        }
+        i = (i + 1) % queue->size;
+    }
+    printf("Element %d not found.\n", data);
+    return 0;
 }
