@@ -1,212 +1,106 @@
-#include<stdio.h>
-#include<malloc.h>
- 
-typedef struct node{
-    int data;
-    struct node* left;
-    struct node* right;
-}node;
- 
-struct node* createNode(int data){
-    struct node *n; // creating a node pointer
-    n = (struct node *) malloc(sizeof(struct node)); // Allocating memory in the heap
-    n->data = data; // Setting the data
-    n->left = NULL; // Setting the left and right children to NULL
-    n->right = NULL; // Setting the left and right children to NULL
-    return n; // Finally returning the created node
-}
- 
-node *inOrderPredecessor(node *node) // The right most node of left sub tree is the inorder predecessor
+// date : 23-07-2021
+// project name : rock paper and scissors game
+// author : Priyanshi Agrawal
+// co-author : Atharv Vani
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+char name[20];        //global var for name
+int sp1 = 0, sp2 = 0; // global score var
+
+void displayTurn(int turn) //print name of active player
 {
-    node = node->left;
-    while (node != NULL && node->right != NULL)
+    if (turn == 1)
     {
-        node = node->right;
+        printf("%s'S TURN :\n", name); // user turn
     }
-    return node;
+    else if (turn == 2)
+    {
+        printf("COMPUTER'S TURN :\n"); //computer turn
+    }
 }
 
-node *delete (node *root, int data)
+int randomNumber() // creating random numbers [0/1/2]
 {
-    // Pehle toh search karna padega toh recursive ya iterative koi bhi choose kr lo
+    srand(time(NULL));
+    return rand() % 2;
+}
 
-    if (root == NULL)
+void checkCondition(char p1, char p2) //cheking conditions of game
+{
+    if ((p1 == 'r' && p2 == 'r') || (p1 == 'p' && p2 == 'p') || (p1 == 's' && p2 == 's')) //condition for TIE
     {
-        return root; // Which is null only.
+        printf("RESULT : tie\n");
     }
 
-    else if (data < root->data)
+    else if ((p1 == 'r' && p2 == 's') || (p1 == 'p' && p2 == 'r') || (p1 == 's' && p2 == 'p')) //condition for PLAYER1  to win
     {
-        root->left = delete (root->left, data);
+        printf("%s got this one\n", name);
+        sp1++;
     }
-    else if (data > root->data)
+
+    else //PLAYER2 wins
     {
-        root->right = delete (root->right, data);
+        printf("COMPUTER got this one\n");
+        sp2++;
     }
-    else
+}
+void displayFinalResult() //print winner of game
+{
+    if (sp1 > sp2) // user is winner
+        printf("\n%s is WINNER %c...\n", name, 1);
+
+    else if (sp2 > sp1) // computer is winner
     {
-        if (root->left == NULL) // This will cover both the cases, leaf node and 1 child node
-        {                       // Left null h mtlb right mai h
-            node *temp = root->right;
-            free(root);
-            return temp;
-        }
-        else if (root->right == NULL)
+        printf("\nCOMPUTER is WINNER %c...\n", 1);
+        printf("%s better luck next time %c...\n", name, 3);
+    }
+
+    else // tie match
+        printf("\nIt was a TIE match %c...", 1);
+}
+
+void main()
+{
+    // adding general information
+    printf("\n*****************ROCK.PAPER.SCISSORS.****************\n");
+    printf("Game Rules : \n");
+    printf("You have to select following code :\n0 for Rock\n1 for Paper\n2 for Scissors\n");
+
+    // taking player name input
+    printf("Please enter PLAYER1 Name : ");
+    gets(name);
+    strupr(name); // converting name into uppercase
+
+    // game starts
+    int p1, p2, i = 0;
+    char code[3] ={'r','p','s'};
+    while (i < 3)
+    {
+        printf("\n");
+        displayTurn(1); //displaying name for turn of player1 (user)
+    up:
+        printf("Enter code [0-rock/1-paper/2-scissors] : ");
+        scanf("%d", &p1);
+        printf("you selected : %c\n",code[p1]);
+        if (p1 > 2 || p1 < 0)
         {
-            node *temp = root->left;
-            free(root);
-            return temp;
+            printf("invalid code selection ...\n");
+            goto up;
         }
-        else
-        {
-            node *pre = inOrderPredecessor(root);
-            root->data = pre->data;
-            root->left = delete (root->left, pre->data);
-        }
-    }
-    return root;
-}
-void preOrder(struct  node* root){
-    if(root!=NULL){
-        printf("%d ", root->data);
-        preOrder(root->left);
-        preOrder(root->right);
-    }
-}
- 
-void postOrder(struct  node* root){
-    if(root!=NULL){
-        postOrder(root->left);
-        postOrder(root->right);
-        printf("%d ", root->data);
-    }
-}
- 
-void inOrder(struct  node* root){
-    if(root!=NULL){
-        inOrder(root->left);
-        printf("%d ", root->data);
-        inOrder(root->right);
-    }
-}
- 
-int isBST(struct  node* root){
-    static struct node *prev = NULL;
-    if(root!=NULL){
-        if(!isBST(root->left)){
-            return 0;
-        }
-        if(prev!=NULL && root->data <= prev->data){
-            return 0;
-        }
-        prev = root;
-        return isBST(root->right);
-    }
-    else{
-        return 1;
-    }
-}
- 
-struct node * searchIter(struct node* root, int key){
-    while(root!=NULL){
-        if(key == root->data){
-            return root;
-        }
-        else if(key<root->data){
-            root = root->left;
-        }
-        else{
-            root = root->right;
-        }
-    }
-    return NULL;
-}
- 
-void insert(struct node *root, int key){
-    struct node *prev = NULL;
-    while(root!=NULL){
-        prev = root;
-        if(key==root->data){
-            printf("Cannot insert %d, already in BST", key);
-            return;
-        }
-        else if(key<root->data){
-            root = root->left;
-        }
-        else{
-            root = root->right;
-        }
-    }
-    struct node* new = createNode(key);
-    if(key<prev->data){
-        prev->left = new;
-    }
-    else{
-        prev->right = new;
-    }
-}
 
-// struct node *inOrderPredecessor(struct node* root){
-//     root = root->left;
-//     while (root->right!=NULL)
-//     {
-//         root = root->right;
-//     }
-//     return root;
-// }
-
-// struct node *deleteNode(struct node *root, int value){
-
-//     struct node* iPre;
-//     if (root == NULL){
-//         return NULL;
-//     }
-//     if (root->left==NULL&&root->right==NULL){
-//         free(root);
-//         return NULL;
-//     }
-
-//     //searching for the node to be deleted
-//     if (value < root->data){
-//         root-> left = deleteNode(root->left,value);
-//     }
-//     else if (value > root->data){
-//         root-> right = deleteNode(root->right,value);
-//     }
-//     //deletion strategy when the node is found
-//     else{
-//         iPre = inOrderPredecessor(root);
-//         root->data = iPre->data;
-//         root->left = deleteNode(root->left, iPre->data);
-//     }
-//     return root;
-// }
- 
-int main(){
-     
-    // Constructing the root node - Using Function (Recommended)
-    struct node *p = createNode(5);
-    struct node *p1 = createNode(3);
-    struct node *p2 = createNode(6);
-    struct node *p3 = createNode(1);
-    struct node *p4 = createNode(4);
-    // Finally The tree looks like this:
-    //      5
-    //     / \
-    //    3   6
-    //   / \
-    //  1   4  
- 
-    // Linking the root node with left and right children
-    p->left = p1;
-    p->right = p2;
-    // p1->left = p3;
-    p1->right = p4;
-
-    inOrder(p);
-    printf("\n");
-    delete(p, 3);
-    inOrder(p);
-
-    return 0;
+        displayTurn(2); //displaying name for turn of player2 (computer)
+        p2 = randomNumber();
+        printf("%d\n", p2);     //print computer's selected code
+        printf("computer selected: %c\n",code[p2]);
+        checkCondition(code[p1], code[p2]); //checking conditions
+        printf("-------------------------------------------------------------\n");
+        i++;
+    }
+    printf("\n***************************SCORE*******************************\n");
+    printf("%s : %d\n", name, sp1);
+    printf("COMPUTER : %d\n", sp2);
+    displayFinalResult();
+    printf("\n**************************THANK YOU*****************************\n");
 }
