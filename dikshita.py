@@ -14,7 +14,7 @@ class Test:
     def result(self):
         print(list(range(1, len(self.list) + 1)))
         
-        combinations([])
+        # combinations([])
 
         comb = combinations(list(range(1, len(self.list) + 1)), 2)
 

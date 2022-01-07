@@ -27,8 +27,8 @@ Big Theta(Θ) :- f(n) is said to be Θ(g(n)){Big Theta of function g(n)} IFF, th
                                 
                             =>  0 <= C₂.g(n) <= f(n) <= C₁.g(n)  
 
-                            ###SEE NOTES AND GRAPHS ARE MUST
-                            ###See graphs and proper definitiion in NOTES
+                            ###SEE HARRAY NOTES AND GRAPHS ARE MUST
+                            ###See graphs and proper definitiion in HARRY NOTES
                             ###big theta is also refered as "order of" and when not clear give big theta 
 
                             ###Big theta provides a better picture of a given algorithm's run time
