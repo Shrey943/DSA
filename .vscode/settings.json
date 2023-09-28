@@ -5,5 +5,10 @@
     "editor.formatOnType": true,
     "[c]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "files.associations": {
+        "stdlib.h": "c",
+        "iostream": "cpp",
+        "valarray": "cpp"
     }
 }

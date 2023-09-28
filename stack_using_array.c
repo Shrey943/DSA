@@ -129,7 +129,7 @@ int peek(struct Stack *stack, int position)
 {                                          // We assume position starting from 1, also since its stack so position 1 is element
                                            // at last and so on.
     int index = stack->top - position + 1; // Since top is the index of last element(starting from 0) while, position start's with 1
-    if (index < 0)
+    if (index < 0 || index > stack->top)
     {                                    // so we need need to add 1 in order to maintain index(for further explain try taking real example)
         printf("Not a valid position."); // ex : for getting element at position 1(last element), if i subtract only position then i get
         return -1;                       //      element at position 2

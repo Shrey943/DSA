@@ -105,6 +105,9 @@ int pop(struct Node *node) // To update the value of top in main function we nee
     else
     {
         int poped_data = node->data;
+        // Do you know why we had node variable? As we could had performed all the operations on top from here itself, we don't need a parameter
+        // Actually because of below line, we would eventually need a temp variable for free operation, so we choosed to have it as parameter, 
+        // But It's always better to have as minimal parameters as possible
         top = node->nextNode; //Since we had declared top globally, we can change
         free(node);
         return poped_data;

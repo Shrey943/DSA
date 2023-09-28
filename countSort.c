@@ -23,7 +23,7 @@ void countSort(int array[], int size)
         count[array[i]]++; // Increment count value according to index
     }
 
-    for (int i = 0; i < max + 1; i++)        // Time = max+1 = n + c (where c is any integer)
+    for (int i = 0; i < max + 1; i++)        // Time = max+1 = n + c (where c is max element{range of array})
     {
         while (count[i] > 0)
         {
@@ -46,9 +46,9 @@ void display(int arr[], int size)
 
 int main()
 {
-    int arr[] = {5, 3, 7, 3, 1, 9};
-    // int arr[] = {5, 4, 23, 6, 7, 58, 4, 52, 35, 5375, 688, 6324, 53425, 1};       // IS input ke liye bahut 
-    int size = 6;
+    int arr[] = {5, 3, 7, 3, 1, 2, 1, 1, 3, 5, 1, 1,1, 0, 9}; // GREAT!! I mean best for small range or repeated values!
+    // int arr[] = {5, 4, 23, 6, 7, 58, 4, 52, 35, 5375, 688, 6324, 53425, 1}; // Bhai saab, iss input ke liye isko 53,425 memory blocks lag jaate 
+    int size = 15;
 
     printf("List before sort: ");
     display(arr, size);

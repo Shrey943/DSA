@@ -156,13 +156,13 @@ struct Node *append(struct Node *head, int data)
 {
     struct Node *new = (struct Node *)malloc(sizeof(struct Node)), *temp = head;
 
-    while (temp->nextNode != NULL)
+    do 
     {
         temp = temp->nextNode;
-    }
+    } while (temp->nextNode != head);
 
     new->data = data;
-    new->nextNode = NULL;
+    new->nextNode = head;
     temp->nextNode = new;
 
     return head;
@@ -209,17 +209,18 @@ struct Node *deleteNode(struct Node *head, int index)
 struct Node *deleteByVal(struct Node *head, int value)
 {
     struct Node *p = head, *q = head->nextNode;
+    // Put a condition for head == NULL or head->nextnode == head.
     if (head != NULL && head->data == value)
     {
         free(p);
         return q;
     }
-    while (q != NULL && q->data != value)
+    do // check this shit, as we are talking about circular linked list
     {
         p = q;
         q = q->nextNode;
-    }
-    if (q == NULL)
+    } while ((q != head && q->data != value));
+    if ((q == head)|| (head == NULL))
     {
         return head;
     }

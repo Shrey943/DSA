@@ -85,8 +85,12 @@ char *getPostfix(char *infix)
             }
             else
             {
+                if(!isEmpty(&stack)){
+                    postfix[j] = pop(&stack);
+                }else{
+                    i++;
+                }
 
-                postfix[j] = pop(&stack);
                 j++; // Since we want to check the same conditions again for same infix value till precedence of top is not less, hence i++ not written
             }
         }

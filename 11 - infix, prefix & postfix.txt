@@ -8,7 +8,7 @@ Infix :  Normal expression is known as infix.
         A)  a*b+c-d/r
         B)  a*(b/c)+i
 
-Prefix : Prefix is just an another way of writting expressions. In this, operators are on the right side of operands. its 
+Prefix : Prefix is just an another way of writting expressions. In this, operators are on the left side of operands. its 
          evaluated from right to left. As soon as a operator is encountered, compiler operats it with the last 2 characters
          (could also be the result of some cal).
          ex:
@@ -39,7 +39,7 @@ Prefix : Prefix is just an another way of writting expressions. In this, operato
             In this way, operators are written on the right side while operands on the left. the compiler go throudh expression from left to right
             searching for operator and ignoring operands. as soon as it gets a operator, it applies (operate) it on last two operands and so on.
             ex:  
-            A) cab*+dr/-
+            A) ab*c+dr/-
             B) iabc/*+
 
          Above are the prefixs of the example of infix i.e. expression A and B
@@ -62,8 +62,9 @@ Prefix : Prefix is just an another way of writting expressions. In this, operato
             ab*c+dr/-
 
          Compiler  kaise solve krta h:
-         pehle cab ko ignore karega
+         pehle ab ko ignore karega
          fir * milega toh ab ko multiply karega  (let result be res1)
+         fir c ko ignore
          fir + milega toh res1 + c karega        (let result be res2)
          fir dr ko ignore karega
          fir / milega toh d/r                    (let result be res3)

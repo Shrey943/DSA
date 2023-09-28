@@ -21,7 +21,7 @@ Queue can be implemented through various ways : array, linked list and even stac
                 Space is not used efficiently 
                 (Since first position is always incremented by 1, the previous memory blocks are of no longer use. Also stack can't 
                 insert new elemets (assuming it is filled till last block). at one time, first = last = last index, in that case 
-                it says queue is full infact having alll the space available.)
+                it says queue is full infact having all the space available.)
 
                 To overcome above drawback, circular queue is used.
 # Circular Queue: Its like a circular array in which, once the index reached last index the queue starts filling memory blocks 

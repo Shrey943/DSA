@@ -36,12 +36,10 @@ void printGraph(int arr[][V])
 
 int check(int graph[][V], int mstVertex[], int leftVertex[], int store[])
 {
-    printf("IN CHECK FUNC\n");
     int min = INT_MAX, minIndex2, minIndex1;
 
     for (int i = 0; i < V; i++)
     {
-        printf("IN CHECK loop1\n");
         if (mstVertex[i] == 1)
         {
             for (int j = 0; j < V; j++)

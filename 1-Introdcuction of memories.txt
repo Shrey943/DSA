@@ -5,7 +5,7 @@ legacy data -  data which is different from main data(stored differently)
                and could be used in future for annalysis
 DATABASE(stored in permanent storage for fast updation and deletion) , 
 
-DATA WAREHOUSE(anagement of huge data of legacy data( the data we keep 
+DATA WAREHOUSE(arrangement of huge data of legacy data( the data we keep 
 at a different place from our fresh data in the database to make the process of 
 retrieval and updation fast) for better analysis.) , 
 

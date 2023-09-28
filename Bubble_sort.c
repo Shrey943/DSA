@@ -21,10 +21,10 @@ int main()
 
 void BubbleSort(int *arr, int length)
 {
-    // int length = (sizeof(arr) / sizeof(int)) + 1; //length of array - since its just a pointer hence will give size of pointer
-    // printf("\nLength : %d\n", length);
+    // Below code will not give size of array
+    // int length1 = (sizeof(arr) / sizeof(int)) + 1; //length of array - since its just a pointer hence will give size of pointer
+    // printf("\nLength : %d\n", length1);
 
-    int alreadySorted = 0;
     int temp;
 
     for (int i = length - 1; i > 0; i--) // Since we just want n-1 times and also to represent index length-1. This loop is representing pass

@@ -11,7 +11,7 @@ Array : array is the sequence of data stored in continous address. It can store 
 
         We can get and set any element on array at O(1) time using address - Advantage
         for ex: address of first element is x then adress of nth element is : x + 4(n)
-                asumming array of a integer with 4 bit .
+                asumming array of a integer with 4 bit each.
 
         But we can not change the size of array in C. So inserting or deleting  any element at any position 
         turns out to as costly as O(n) as if element at first position is removed then decrease the index of 

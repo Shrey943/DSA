@@ -39,7 +39,8 @@ benefits and its own drawbacks. Hence algo's are selected accordingly. Pr kis cr
    B) External sorting algo: when all data is read from a file or database, this reduced memory consumption.
 
 5. Adaptive : If a sorted array is given as an input then algo takes less time to sort.(identify that it is sorted) 
-              Mtlb ek aisa algo ho skta h jo bina sooche ki sorted h ya nai, same sets of command run kare har element mai, toh usko adaptive nai kahenge. Jbki agar dusra algo pehle check kr le aur fatak se batade ki sorted h toh usko adaptive kahenge. 
+              Mtlb ek aisa algo ho skta h jo bina sooche ki sorted h ya nai, same sets of command run kare har element mai, toh usko adaptive 
+              nai kahenge. Jbki agar dusra algo pehle check kr le aur fatak se batade ki sorted h toh usko adaptive kahenge. 
 
 6. Recursive / Non-Recursive sorting algo:  Recursion accha nai hota ye toh pata hi hoga toh non-recursive algo
                                             (which do not use recursion in them) ko better kahenge.
@@ -52,7 +53,7 @@ Types of sorting algorithm :
 
 A) Bubble sort : bubble sort is the most simple yet effective sorting algorithm. In bubble sort you go through the array n-1 times which is 
                  known as pass. On each you keep on compairing 2 elements like index 0-1, 1-2, 2-3,....(n-1)-n and swapping them if element on
-                 right is greater than element on left. On each paas, the greatest element of the array is setted on the left and so in next
+                 left is greater than element on right. On each paas, the greatest element of the array is setted on the right and so in next
                  pass you need not to check that and after that elements. also on (n-1)th pass, the array gets sorted hence you need to go 
                  N-1 PASSES TO SORT AN ARRAY OF LENGTH N.
 
@@ -340,17 +341,17 @@ D) Quick Sort : Quick sort is the divide and conquer technique. Dekho, ek elemen
       3. Quick Sort in is an in-place sort (i.e. it doesn’t require any extra storage) so it is appropriate to use it for arrays.
       
       # Low : jo bhi smallest index hota h effective array ka (mtlb jis array mai kaam krna h)
-      # High : jo bhi highes index hota h effective array ka 
+      # High : jo bhi highest index hota h effective array ka 
 
       Pivot as Last element :
 
       pivot last element rehega(high position waala), i ki value low -1 rahegi, aur pivot last mai i +1 position mai aayega, 
       Dekho fatak se, j low se transerverse krna chaalu karega, j ko jaise hi koi pivot se chota element milega, vo i ki value increment kr ke
-      i se swap kr lega, aise mai i position tk sirf pivot se chote element hi rahenge, jaise hi j high-1 position check kr lega, toh uske baad
+      i se swap kr lega, aise mai i position tk sirf pivot se chote element hi rahenge, jaise hi j, high-1 position check kr lega, toh uske baad
       i+1 position ke saath pivot swap kr lega. Ab pivot ke left side chote aur right side bade elements h.
 
       Arre bahutai easy h, code toh dekho zara.
-
+  
 E) Merge Sort : Merge sort ka ek fanda h, pehle todo fir jodo, (divide and merge). Pehle recursion ka use kr ke array ko mid mai se todte jaao
                 jab tk sirf ek element na bache, which is already sorted. Ab waha se wapas ussi path mai jisse aaye the, wapas jaana chaalu karo 
                 merge krte hue. Ab aata h real khel, merge sort ka naam hi merge se pada, ki 2 sorted array ko merge krna. jb apan recursion mai
@@ -408,7 +409,8 @@ E) Merge Sort : Merge sort ka ek fanda h, pehle todo fir jodo, (divide and merge
       
       - Merge sort is fast in the case of a linked list.
       
-      - It is used in the case of a linked list as in linked list for accessing any data at some index we need to traverse from the head to that index and merge sort accesses data sequentially and the need of random access is low.
+      - It is used in the case of a linked list as in linked list for accessing any data at some index we need to traverse from the head to that 
+         index and merge sort accesses data sequentially and the need of random access is low.
       
       - The main advantage of the merge sort is its stability, the elements compared equally retain their original order.
 

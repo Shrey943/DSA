@@ -4,21 +4,21 @@
 /* Dekho, 5 min mai apan smjhte h ki DFS hota kya h, toh DFS kuch nai re bs ek simple sa transversal h,
 
 |
-|                                    # Assume ki ye 6 rahya h aur apan ko sb jeetna h
+|                                    # Assume ki ye 6 rajya h aur apan ko sb jeetna h
 |              0 -- 5
 |              |  \ | \
 |              4 -- 1--3
 |              |
 |              2
 
- # Let's take a walk from one point to another and haath mai ek register le lo, aur usme jis bhi point kr pahuche
+ # Let's take a walk from one point to another and haath mai ek register le lo, aur usme jis bhi point pr pahuche
    likhte jao, but han agar same point pr firse jaana avoid krna.(aur han bhaiya, firse likhna bhi nai)
 
 Ab, ye ek simple sa graph le lo, aur koi bhi ek node pakad lo, lets take 0, ab ye batao ki 0 se kaha kaha ja skte h?
 1, 4, 5 na ? toh chalo vese hi chalte h, pr jaisa ki apne bharat mai hamesa hota h toh chote se bade chalte h
 (bakki kahi bhi ja skte ho tum, but fir code khud hi likhna)
 
-toh chalo 0 se 1 chalte aur baaki 3 raste discover krne pending rakhte h. Chalo toh ab apan pahuch gaye 1 pe,
+toh chalo 0 se 1 chalte aur baaki 2 raste discover krne pending rakhte h. Chalo toh ab apan pahuch gaye 1 pe,
 ab kya? ab yaha se apan 0, 3, 4, 5 ja skte h, aur chota toh 0 h but bete register mai dekho, 0 toh jeet aaye apan
 toh next chota h 3, toh chalo chalte h. Ab apan ne 3 bhi jeet liya, toh likh lo register mai fir. pr ab 3 se kaha
 jaaye? 1, 5 ja skte h but 1 toh jeet chuke h toh 5 chalte h. Ab apan ne 5 bhi jeet liya, ab? yaha se toh 3 hi raste h

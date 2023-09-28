@@ -19,7 +19,7 @@ node *createNode(int data)
     new->left = NULL;
     // AS: The height of a node is the number of edges present in the longest path connecting that node to a leaf node. Ab khus
 
-    new->height = 1; // LOOK, VESE HEIGHT OF A LEAF IS 0 but apan NULL ki height 1 return kr raye h toh isiliye apan ko 1 se start karna pad ra h height
+    new->height = 1; // LOOK, VESE HEIGHT OF A LEAF IS 0 but apan NULL ki height 0 return kr raye h toh isiliye apan ko 1 se start karna pad ra h height
     return new;
 }
 
